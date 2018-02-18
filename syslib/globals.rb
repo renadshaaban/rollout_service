@@ -1,3 +1,4 @@
+require 'erb'
 module Globals
   extend self
 
@@ -7,8 +8,9 @@ module Globals
   end
 
   def redis
-    config =  YAML.load(File.read('./config/redis.yml'))[$env]
-    puts YAML.load(File.read('./config/redis.yml'))
+
+    config =  YAML.load(ERB.new(File.read('./config/redis.yml')).result)[$env]
+    puts YAML.load(ERB.new(File.read('./config/redis.yml')).result)
     puts config
     $redis = Redis.new(config)
     puts $redis
