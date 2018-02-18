@@ -1,2 +1,4 @@
 development:
    :google_oauth_allowed_domain: ''
+production:
+  :google_oauth_allowed_domain: ''
