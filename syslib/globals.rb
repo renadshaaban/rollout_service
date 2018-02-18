@@ -10,10 +10,10 @@ module Globals
   def redis
 
     config =  YAML.load(ERB.new(File.read('./config/redis.yml')).result)[$env]
-    puts YAML.load(ERB.new(File.read('./config/redis.yml')).result)
+    #puts YAML.load(ERB.new(File.read('./config/redis.yml')).result)
     puts config
     $redis = Redis.new(config)
-    puts $redis
+    #puts $redis
   end
 
   def rollout

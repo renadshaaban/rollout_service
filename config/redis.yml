@@ -1,14 +1,14 @@
-default: &default
-  host: <%= ENV['ROLLOUT_REDIS_HOST']%>
-  port: <%= ENV['ROLLOUT_REDIS_PORT']%>
-
 development:
   host: 127.0.0.1
   port: 6379
 
 staging:
-  <<: *default
+  host: <%= ENV['ROLLOUT_REDIS_HOST'] %>
+  port: <%= ENV['ROLLOUT_REDIS_PORT'] %>
+
 
 production:
-  <<: *default
+  host: <%= ENV['ROLLOUT_REDIS_HOST'] %>
+  port: <%= ENV['ROLLOUT_REDIS_PORT'] %>
+
   
