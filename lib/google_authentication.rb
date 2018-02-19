@@ -20,6 +20,8 @@ module GoogleAuthentication
 
     def validate_mail!(response_body)
         return true if $google_oauth_allowed_domain.blank?
+        puts response_body['hd']
+        puts $google_oauth_allowed_domain
         raise 'Unauthorized user, this domain is not allowed' if response_body['hd'] != $google_oauth_allowed_domain
     end
 end

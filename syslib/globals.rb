@@ -16,8 +16,12 @@ module Globals
   end
 
   def authentication
-    #config =  YAML.load(File.read('./config/authentication.yml'))[$env]
-    $google_oauth_allowed_domain = ENV['ROLLOUT_DASHBOARD_HOST']
+    config =  YAML.load(File.read('./config/authentication.yml'))[$env]
+    $google_oauth_allowed_domain = config[:google_oauth_allowed_domain]
+
+    puts $google_oauth_allowed_domain
+    puts config
+    puts $google_oauth_allowed_domain.blank?
   end
 
   def setup
