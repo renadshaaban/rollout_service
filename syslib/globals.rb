@@ -8,12 +8,7 @@ module Globals
   end
 
   def redis
-
-    #config =  YAML.load(ERB.new(File.read('./config/redis.yml')).result)[$env]
-    #puts YAML.load(ERB.new(File.read('./config/redis.yml')).result)
-    #puts config
     $redis = Redis.new()
-    #puts $redis
   end
 
   def rollout
@@ -21,8 +16,8 @@ module Globals
   end
 
   def authentication
-    config =  YAML.load(File.read('./config/authentication.yml'))[$env]
-    $google_oauth_allowed_domain = config[:google_oauth_allowed_domain]
+    #config =  YAML.load(File.read('./config/authentication.yml'))[$env]
+    $google_oauth_allowed_domain = ENV['ROLLOUT_DASHBOARD_HOST']
   end
 
   def setup
