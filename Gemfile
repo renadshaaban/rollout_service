@@ -13,4 +13,5 @@ group :default do
   gem 'active_attr', '~> 0.9.0'
   gem 'mina', '~> 0.3.7'
   gem 'grape-swagger'
+  gem 'prometheus-client'
 end

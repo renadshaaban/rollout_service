@@ -1,4 +1,6 @@
 require 'bundler'
+require 'prometheus/middleware/collector'
+require 'prometheus/middleware/exporter'
 Bundler.require
 
 require_rel 'syslib'
@@ -16,6 +18,10 @@ use Rack::Cors do
   end
 end
 
+use Rack::Deflater, if: ->(_, _, _, body) { body.any? && body[0].length > 512 }
+use Prometheus::Middleware::Collector
+use Prometheus::Middleware::Exporter
+run ->(_) { [200, {'Content-Type' => 'text/html'}, ['OK']] }
 HTTParty::Basement.default_options.update(verify: false) if $env == 'development'
 
 run RolloutService::API
