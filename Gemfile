@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 group :default do
+  gem 'puma', '~> 3.0'
   gem 'unicorn', '~> 5.1'
   gem 'rack-cors'
   gem 'grape'
