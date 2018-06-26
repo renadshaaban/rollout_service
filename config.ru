@@ -20,6 +20,7 @@ end
 
 use Prometheus::Middleware::Collector
 use Prometheus::Middleware::Exporter
+use NewRelic::Rack::AgentHooks
 run ->(_) { [200, {'Content-Type' => 'text/html'}, ['OK']] }
 HTTParty::Basement.default_options.update(verify: false) if $env == 'development'
 
