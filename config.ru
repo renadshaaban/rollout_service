@@ -1,6 +1,7 @@
 require 'bundler'
 require 'prometheus/middleware/collector'
 require 'prometheus/middleware/exporter'
+require 'newrelic_rpm'
 Bundler.require
 
 require_rel 'syslib'
@@ -20,7 +21,7 @@ end
 
 use Prometheus::Middleware::Collector
 use Prometheus::Middleware::Exporter
-use NewRelic::Rack::AgentHooks
+#use NewRelic::Rack::AgentHooks
 run ->(_) { [200, {'Content-Type' => 'text/html'}, ['OK']] }
 HTTParty::Basement.default_options.update(verify: false) if $env == 'development'
 
