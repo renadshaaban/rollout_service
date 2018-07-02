@@ -1,4 +1,4 @@
 development:
    :google_oauth_allowed_domain: ''
 production:
-   :google_oauth_allowed_domain: 'http://rollout.bulkwhiz.com'
+   :google_oauth_allowed_domain: ''
